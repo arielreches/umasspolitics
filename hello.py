@@ -1,4 +1,6 @@
-from flask import Flask
+from flask import Flask, render_template
+from flask import make_response
+from flask_script import Manager
 
 app = Flask(__name__)
 
@@ -6,7 +8,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return '<h1>Hello UMASSPOLITICS!</h1>'
+	politicians = ["trump", "hillary"]
+	return render_template('index.html', politicians=politicians)
 
 
 @app.route('/user/<name>')
