@@ -11,7 +11,7 @@ bootstrap = Bootstrap(app)
 @app.route('/')
 def index():
 	politicians = ["trump", "hillary"]
-	return render_template('user.html')
+	return render_template('user.html', politicians=politicians)
 
 
 @app.route('/user/<name>')
