@@ -3,7 +3,7 @@ from flask import make_response
 from flask_script import Manager
 from flask_bootstrap import Bootstrap
 from flask_wtf import Form
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, RadioField
 from wtforms.validators import Required   
 
 app = Flask(__name__)
@@ -12,7 +12,8 @@ bootstrap = Bootstrap(app)
 
 
 class ResAreaForm(Form):
-	name = StringField('Which area of campus do you live in?')
+	name = RadioField('Label', choices=[('value','description'),('value_two','whatever')])
+
 	submit = SubmitField('Submit')
 
 @app.route('/')
