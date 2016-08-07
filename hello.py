@@ -16,7 +16,7 @@ class ResAreaForm(Form):
 
 	submit = SubmitField('Submit')
 
-@app.route('/')
+@app.route('/', methods = ['GET','POST'])
 def index():
 	politicians = ["trump", "hillary"]
 	form = ResAreaForm()
