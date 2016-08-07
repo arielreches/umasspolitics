@@ -1,1 +1,3 @@
 # umasspolitics
+
+Ariel is cool.
