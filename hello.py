@@ -2,16 +2,24 @@ from flask import Flask, render_template
 from flask import make_response
 from flask_script import Manager
 from flask_bootstrap import Bootstrap
+from flask_wtf import Form
+from wtforms import StringField, SubmitField
+from wtforms.validators import Required   
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'LOVEHURTS'
 bootstrap = Bootstrap(app)
 
 
+class ResAreaForm(Form):
+	name = StringField('Which area of campus do you live in?')
+	submit = SubmitField('Submit')
 
 @app.route('/')
 def index():
 	politicians = ["trump", "hillary"]
-	return render_template('user.html', politicians=politicians)
+	form = ResAreaForm()
+	return render_template('home.html', politicians=politicians, form=form)
 
 
 @app.route('/user/<name>')
