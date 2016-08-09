@@ -7,4 +7,4 @@ CREATE TABLE Student (
 	housing varchar(20),
 	building varchar(20),
 	candidate varchar(20)
-)
+);
